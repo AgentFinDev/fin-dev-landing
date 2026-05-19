@@ -716,6 +716,10 @@ ul, ol {
 }
 
 .final-cta h2 {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
   color: #fff;
   margin-bottom: 16px;
 }
