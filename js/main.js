@@ -55,4 +55,77 @@
       closeDrawer();
     }
   });
+
+  // Scroll-triggered reveal animations
+  var revealTargets = [
+    { selector: '.hero h1', stagger: false },
+    { selector: '.hero .lead', stagger: false },
+    { selector: '.hero-ctas', stagger: false },
+    { selector: '.section h2', stagger: false },
+    { selector: '.section .section-lead', stagger: false },
+    { selector: '.offering-card', stagger: true },
+    { selector: '.stat', stagger: true },
+    { selector: '.case-card', stagger: true },
+    { selector: '.team-copy', stagger: false },
+    { selector: '.map-container', stagger: false },
+    { selector: '.flags-grid', stagger: false },
+    { selector: '.careers p', stagger: false },
+    { selector: '.careers .cta-secondary', stagger: false },
+    { selector: '.final-cta h2', stagger: false },
+    { selector: '.final-cta p', stagger: false },
+    { selector: '.final-cta .cta-primary--inverse', stagger: false }
+  ];
+
+  revealTargets.forEach(function (target) {
+    var elements = document.querySelectorAll(target.selector);
+    elements.forEach(function (el) {
+      el.classList.add('reveal');
+    });
+  });
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+
+          // For staggered items, find siblings and stagger
+          var parent = el.parentElement;
+          var siblings = parent ? parent.querySelectorAll(':scope > .reveal:not(.visible)') : [];
+          var isGridChild = parent && (
+            parent.classList.contains('offerings-grid') ||
+            parent.classList.contains('team-stats') ||
+            parent.classList.contains('cases-grid')
+          );
+
+          if (isGridChild && siblings.length > 0) {
+            var visibleSiblings = [];
+            siblings.forEach(function (sib) {
+              if (!sib.classList.contains('visible')) {
+                visibleSiblings.push(sib);
+              }
+            });
+            visibleSiblings.forEach(function (sib, idx) {
+              sib.style.transitionDelay = (idx * 0.1) + 's';
+              sib.classList.add('visible');
+            });
+          } else {
+            el.classList.add('visible');
+          }
+          observer.unobserve(el);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('visible');
+    });
+  }
 })();
