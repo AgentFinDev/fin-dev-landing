@@ -3,10 +3,10 @@
 
   var header = document.querySelector('.site-header');
   var hamburger = document.querySelector('.hamburger');
-  var drawer = document.querySelector('.mobile-drawer');
-  var overlay = document.querySelector('.mobile-drawer-overlay');
-  var drawerClose = document.querySelector('.drawer-close');
-  var drawerLinks = document.querySelectorAll('.mobile-nav a');
+  var navMenu = document.querySelector('.nav-menu');
+  var overlay = document.querySelector('.nav-menu-overlay');
+  var navClose = document.querySelector('.nav-menu-close');
+  var navLinks = document.querySelectorAll('.nav-menu-links a');
 
   var scrollThreshold = 80;
 
@@ -18,16 +18,16 @@
     }
   }, { passive: true });
 
-  function openDrawer() {
-    drawer.classList.add('open');
+  function openMenu() {
+    navMenu.classList.add('open');
     overlay.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
-    drawerClose.focus();
+    navClose.focus();
   }
 
-  function closeDrawer() {
-    drawer.classList.remove('open');
+  function closeMenu() {
+    navMenu.classList.remove('open');
     overlay.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
@@ -37,43 +37,53 @@
   hamburger.addEventListener('click', function () {
     var isOpen = hamburger.getAttribute('aria-expanded') === 'true';
     if (isOpen) {
-      closeDrawer();
+      closeMenu();
     } else {
-      openDrawer();
+      openMenu();
     }
   });
 
-  drawerClose.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
-
-  for (var i = 0; i < drawerLinks.length; i++) {
-    drawerLinks[i].addEventListener('click', closeDrawer);
-  }
+  navClose.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && drawer.classList.contains('open')) {
-      closeDrawer();
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  // Highlight active nav link based on current page
+  var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+  navLinks.forEach(function (link) {
+    var linkPath = link.getAttribute('href').replace(/\/$/, '') || '/';
+    if (currentPath === linkPath || (currentPath.indexOf('.html') > -1 && currentPath.replace('.html', '') === linkPath)) {
+      link.classList.add('active');
     }
   });
 
   // Scroll-triggered reveal animations
   var revealTargets = [
     { selector: '.hero h1', stagger: false },
-    { selector: '.hero .lead', stagger: false },
-    { selector: '.hero-ctas', stagger: false },
+    { selector: '.page-hero h1', stagger: false },
     { selector: '.section h2', stagger: false },
     { selector: '.section .section-lead', stagger: false },
-    { selector: '.offering-card', stagger: true },
-    { selector: '.stat', stagger: true },
+    { selector: '.intro-text h2', stagger: false },
+    { selector: '.intro-text p', stagger: false },
+    { selector: '.intro-cta', stagger: false },
+    { selector: '.stats-header', stagger: false },
+    { selector: '.stats-text', stagger: false },
+    { selector: '.stat-box', stagger: true },
     { selector: '.case-card', stagger: true },
-    { selector: '.team-copy', stagger: false },
-    { selector: '.map-container', stagger: false },
-    { selector: '.flags-grid', stagger: false },
-    { selector: '.careers p', stagger: false },
-    { selector: '.careers .cta-secondary', stagger: false },
-    { selector: '.final-cta h2', stagger: false },
-    { selector: '.final-cta p', stagger: false },
-    { selector: '.final-cta .cta-primary--inverse', stagger: false }
+    { selector: '.about-text', stagger: false },
+    { selector: '.service-detail-item', stagger: true },
+    { selector: '.location-item', stagger: true },
+    { selector: '.world-map', stagger: false },
+    { selector: '.contact-section h2', stagger: false },
+    { selector: '.contact-section p', stagger: false },
+    { selector: '.contact-section .cta-primary', stagger: false },
+    { selector: '.careers-section h2', stagger: false },
+    { selector: '.careers-section p', stagger: false },
+    { selector: '.services-detail-header', stagger: false }
   ];
 
   revealTargets.forEach(function (target) {
@@ -89,16 +99,16 @@
         if (entry.isIntersecting) {
           var el = entry.target;
 
-          // For staggered items, find siblings and stagger
           var parent = el.parentElement;
-          var siblings = parent ? parent.querySelectorAll(':scope > .reveal:not(.visible)') : [];
           var isGridChild = parent && (
-            parent.classList.contains('offerings-grid') ||
-            parent.classList.contains('team-stats') ||
-            parent.classList.contains('cases-grid')
+            parent.classList.contains('stats-numbers') ||
+            parent.classList.contains('cases-grid') ||
+            parent.classList.contains('services-detail-grid') ||
+            parent.classList.contains('locations-grid')
           );
 
-          if (isGridChild && siblings.length > 0) {
+          if (isGridChild) {
+            var siblings = parent.querySelectorAll(':scope > .reveal:not(.visible)');
             var visibleSiblings = [];
             siblings.forEach(function (sib) {
               if (!sib.classList.contains('visible')) {
