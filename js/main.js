@@ -83,7 +83,18 @@
     { selector: '.contact-section .cta-primary', stagger: false },
     { selector: '.careers-section h2', stagger: false },
     { selector: '.careers-section p', stagger: false },
-    { selector: '.services-detail-header', stagger: false }
+    { selector: '.services-detail-header', stagger: false },
+    { selector: '.difference-text', stagger: false },
+    { selector: '.difference-image', stagger: false },
+    { selector: '.value-item', stagger: true },
+    { selector: '.values-closing', stagger: false },
+    { selector: '.asset-tag', stagger: true },
+    { selector: '.strength-item', stagger: true },
+    { selector: '.approach-item', stagger: true },
+    { selector: '.case-list-item', stagger: true },
+    { selector: '.principle-item', stagger: true },
+    { selector: '.solution-item', stagger: true },
+    { selector: '.career-links-grid', stagger: false }
   ];
 
   revealTargets.forEach(function (target) {
@@ -103,8 +114,15 @@
           var isGridChild = parent && (
             parent.classList.contains('stats-numbers') ||
             parent.classList.contains('cases-grid') ||
+            parent.classList.contains('cases-list') ||
             parent.classList.contains('services-detail-grid') ||
-            parent.classList.contains('locations-grid')
+            parent.classList.contains('locations-grid') ||
+            parent.classList.contains('values-grid') ||
+            parent.classList.contains('asset-classes') ||
+            parent.classList.contains('strengths-grid') ||
+            parent.classList.contains('approach-grid') ||
+            parent.classList.contains('principles-grid') ||
+            parent.classList.contains('solutions-list')
           );
 
           if (isGridChild) {
