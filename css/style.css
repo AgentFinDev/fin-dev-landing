@@ -561,6 +561,8 @@ ul, ol {
   padding: var(--space-section) 0;
   background: var(--bg-alt);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
 }
 
 .intro-section:nth-of-type(even) {
@@ -1200,39 +1202,78 @@ ul, ol {
 }
 
 /* ========================================
-   DIAGONAL LINES DECORATION
+   ANIMATED DIAGONAL LINES (services picture)
    ======================================== */
-.diagonal-lines {
+@keyframes wiring {
+  from { left: -200px; margin-left: 0; }
+  to   { left: 100%;   margin-left: 200px; }
+}
+
+.services-picture-lines {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  height: 60%;
-  pointer-events: none;
+  inset: 0;
+  transform: rotate(-45deg);
   z-index: 1;
+  pointer-events: none;
   overflow: hidden;
 }
 
-.diagonal-lines::before,
-.diagonal-lines::after {
-  content: '';
-  position: absolute;
-  width: 200%;
+.lines-clause {
+  background: #303030;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0.1;
-  transform: rotate(-35deg);
-  transform-origin: left center;
-}
-
-.diagonal-lines::before {
-  top: 30%;
-  left: -20%;
-}
-
-.diagonal-lines::after {
+  left: -120px;
+  position: absolute;
+  right: -120px;
   top: 50%;
-  left: -10%;
+}
+
+.lines-clause:first-child  { margin-top: -192px; }
+.lines-clause:nth-child(2) { margin-top: -96px; }
+.lines-clause:nth-child(4) { margin-top: 96px; }
+.lines-clause:nth-child(5) { margin-top: 192px; }
+
+.lines-roller {
+  animation-direction: forwards;
+  animation-iteration-count: infinite;
+  animation-name: wiring;
+  animation-timing-function: ease-out;
+  background: linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+  height: 1px;
+  position: absolute;
+  top: 0;
+}
+
+.lines-roller::before,
+.lines-roller::after {
+  background: linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+  content: '';
+  height: 1px;
+  inset: 0;
+  position: absolute;
+}
+
+.lines-roller::before { filter: blur(2px); }
+.lines-roller::after  { filter: blur(8px); }
+
+.lines-roller-inside {
+  background: linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+  content: '';
+  height: 1px;
+  inset: 0;
+  position: absolute;
+}
+
+.lines-clause:first-child  .lines-roller { animation-duration: 2.4s; width: 120px; }
+.lines-clause:nth-child(2) .lines-roller { animation-delay: 0.8s; animation-duration: 2.8s; width: 200px; }
+.lines-clause:nth-child(3) .lines-roller { animation-delay: 1.2s; animation-duration: 4.4s; width: 160px; }
+.lines-clause:nth-child(4) .lines-roller { animation-delay: 0.4s; animation-duration: 3.2s; width: 180px; }
+.lines-clause:nth-child(5) .lines-roller { animation-delay: 1.2s; animation-duration: 2.4s; width: 120px; }
+
+@media (max-width: 1024px) {
+  .lines-clause:first-child  { margin-top: -128px; }
+  .lines-clause:nth-child(2) { margin-top: -64px; }
+  .lines-clause:nth-child(4) { margin-top: 64px; }
+  .lines-clause:nth-child(5) { margin-top: 128px; }
 }
 
 /* ========================================
