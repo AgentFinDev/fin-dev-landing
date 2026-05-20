@@ -59,50 +59,59 @@
       <a href="../services.html">services <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
       <a href="../cases.html" class="active">cases <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
       <a href="../career.html">careers <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a href="../career/open-positions.html">open positions <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
     </div>
   </nav>
 
   <main>
     <!-- PAGE HERO -->
     <section class="page-hero">
-      <div class="b-cases--video">
-        <video preload="metadata" autoplay loop muted playsinline
-          poster="https://fin.dev/i/b-about-epigraph-video-poster.jpg"
-          class="b-cases--video--entity b-cases--video--entity---desktop">
-          <source src="https://fin.dev/i/b-about-epigraph-video.mp4" type="video/mp4">
-        </video>
-        <video preload="metadata" autoplay loop muted playsinline
-          poster="https://fin.dev/i/b-about-epigraph-video-mobile-poster.jpg"
-          class="b-cases--video--entity b-cases--video--entity---mobile">
-          <source src="https://fin.dev/i/b-about-epigraph-video-mobile.mp4" type="video/mp4">
-        </video>
-      </div>
       <div class="container">
-        <h1>DMA <span class="accent">Support</span></h1>
+        <p class="page-hero-subtitle"><a href="../cases.html">← Back to cases</a></p>
+        <h1>DMA Support</h1>
       </div>
     </section>
 
     <!-- CASE CONTENT -->
-    <section class="about-content">
+    <section class="section">
       <div class="container">
         <div class="about-card">
           <div class="about-text">
-            <h2>Context</h2>
-            <p>Following a successful global EMS platform rollout, findev expanded services to include Direct Market Access (DMA) for clients.</p>
+            <blockquote>
+              <p>Following the successful rollout of the global EMS platform delivered by findev, the business expanded its offering to include <strong>Direct Market Access (DMA)</strong> for clients.</p>
+            </blockquote>
 
-            <h2>Challenges</h2>
+            <h2>Key Challenges</h2>
+
             <ul>
-              <li>Handling approximately 10 million trades daily</li>
-              <li>Sub-1ms pass-through latency requirements</li>
-              <li>Supporting varied client connection methods</li>
-              <li>Managing client-side risk and limit controls</li>
+              <li><strong>High load:</strong> ~10 million trades per day</li>
+              <li><strong>Strict latency requirements:</strong> Sub-1ms pass-through latency</li>
+              <li><strong>Flexible client connectivity</strong></li>
+              <li><strong>Client risk &amp; limit controls</strong></li>
             </ul>
 
-            <h2>Solution</h2>
-            <p>The team maintained the existing unified codebase while deploying horizontally scalable, separate DMA instances. They restructured fundamental platform components to handle the elevated throughput and minimal latency specifications.</p>
+            <h2>Implementation Approach</h2>
 
-            <h2>Outcomes</h2>
-            <p>The enhancement was delivered within reasonable timeframes thanks to the platform's initial robust architecture. The DMA feature launched successfully and achieved positive client reception.</p>
+            <ul>
+              <li>Still maintained a <strong>single codebase</strong> for the platform</li>
+              <li>Deployed <strong>horizontally scalable, separate DMA instances</strong></li>
+              <li>Redesigned core components to meet high-load and low-latency demands</li>
+            </ul>
+
+            <div class="case-comparison">
+              <div class="case-comparison-switcher">
+                <button class="case-comparison-btn active" data-target="before">Before Findev</button>
+                <button class="case-comparison-btn" data-target="after">After Findev</button>
+              </div>
+              <div class="case-comparison-content">
+                <img src="https://backoffice.fin.dev/uploads/1761205650.8469896.png" alt="Before Findev" class="case-comparison-img" data-state="before">
+                <img src="https://backoffice.fin.dev/uploads/1761205650.8471692.png" alt="After Findev" class="case-comparison-img hidden" data-state="after">
+              </div>
+            </div>
+
+            <blockquote>
+              <p>Thanks to the platform's initial robust architecture, these enhancements were delivered within an acceptable time-to-market window. The DMA functionality successfully launched and was well-received by clients.</p>
+            </blockquote>
           </div>
         </div>
       </div>

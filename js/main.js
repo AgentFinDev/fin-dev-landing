@@ -22,7 +22,7 @@
     navMenu.classList.add('open');
     overlay.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
+    hamburger.style.display = 'none';
     navClose.focus();
   }
 
@@ -30,7 +30,7 @@
     navMenu.classList.remove('open');
     overlay.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    hamburger.style.display = '';
     hamburger.focus();
   }
 
@@ -157,4 +157,25 @@
       el.classList.add('visible');
     });
   }
+
+  // Before/After comparison toggle for case study pages
+  document.querySelectorAll('.case-comparison-switcher').forEach(function (switcher) {
+    var btns = switcher.querySelectorAll('.case-comparison-btn');
+    var container = switcher.parentElement.querySelector('.case-comparison-content');
+    var imgs = container.querySelectorAll('.case-comparison-img');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = btn.getAttribute('data-target');
+        btns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        imgs.forEach(function (img) {
+          if (img.getAttribute('data-state') === target) {
+            img.classList.remove('hidden');
+          } else {
+            img.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
 })();

@@ -42,6 +42,7 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -241,19 +242,19 @@ ul, ol {
 /* Nav menu dropdown */
 .nav-menu {
   position: fixed;
-  top: 20px;
+  top: 80px;
   right: 20px;
   z-index: 201;
-  background: var(--bg);
-  border: 1px solid var(--bg-card-border);
+  background: #ffffff;
   border-radius: var(--radius);
   padding: 16px;
-  min-width: 260px;
+  min-width: 280px;
   transform: scale(0.9) translateY(-10px);
   opacity: 0;
   visibility: hidden;
   transition: transform 0.35s var(--ease-out), opacity 0.3s var(--ease-out), visibility 0.3s;
   transform-origin: top right;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .nav-menu.open {
@@ -264,10 +265,10 @@ ul, ol {
 
 .nav-menu-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 40px;
-  height: 40px;
+  top: -56px;
+  right: 0;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -297,7 +298,7 @@ ul, ol {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-top: 48px;
+  margin-top: 0;
 }
 
 .nav-menu-links a {
@@ -307,14 +308,14 @@ ul, ol {
   padding: 14px 16px;
   border-radius: var(--radius-sm);
   font-size: 1rem;
-  font-weight: 400;
-  color: var(--text-primary);
+  font-weight: 600;
+  color: #000000;
   transition: background 0.2s;
   min-height: 48px;
 }
 
 .nav-menu-links a:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .nav-menu-links a.active {
@@ -588,13 +589,46 @@ ul, ol {
 /* ========================================
    APPROACH ITEM PICTURES
    ======================================== */
+@keyframes approach-hexagon-float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10px, -8px) rotate(5deg); }
+  50% { transform: translate(-5px, 5px) rotate(-3deg); }
+  75% { transform: translate(8px, 8px) rotate(2deg); }
+}
+
+@keyframes approach-hexagon-float-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-8px, 10px) rotate(-4deg); }
+  50% { transform: translate(6px, -6px) rotate(3deg); }
+  75% { transform: translate(-10px, -5px) rotate(-2deg); }
+}
+
 .approach-item-picture {
-  margin-bottom: 16px;
-  opacity: 0.4;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .approach-item-picture svg {
   display: block;
+  opacity: 0.5;
+}
+
+.approach-item-picture .hex-animated {
+  animation: approach-hexagon-float 8s ease-in-out infinite;
+}
+
+.approach-item-picture .hex-animated-2 {
+  animation: approach-hexagon-float-2 10s ease-in-out infinite;
+  position: absolute;
+  opacity: 0.2;
 }
 
 /* ========================================
@@ -723,6 +757,24 @@ ul, ol {
   .intro-grid {
     grid-template-columns: 1fr 1fr;
     gap: 64px;
+  }
+}
+
+.intro-grid--right-only {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+  min-height: 200px;
+}
+
+@media (min-width: 768px) {
+  .intro-grid--right-only {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+  .intro-grid--right-only .intro-text {
+    grid-column: 2;
   }
 }
 
@@ -1655,10 +1707,10 @@ ul, ol {
 }
 
 .approach-item {
-  padding: 32px 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--bg-card-border);
-  border-radius: var(--radius);
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
 
 .approach-item h3 {
@@ -1764,6 +1816,96 @@ ul, ol {
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
+}
+
+/* ========================================
+   CASE STUDY — BEFORE/AFTER COMPARISON
+   ======================================== */
+.case-comparison {
+  margin: 40px 0;
+}
+
+.case-comparison-switcher {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.case-comparison-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  background: var(--accent);
+  color: #fff;
+}
+
+.case-comparison-btn:not(.active) {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--bg-card-border);
+}
+
+.case-comparison-content {
+  position: relative;
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-height: 300px;
+  background: var(--bg-card);
+}
+
+.case-comparison-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.case-comparison-content img.hidden {
+  display: none;
+}
+
+/* ========================================
+   CASE STUDY — CONTENT BLOCKS
+   ======================================== */
+.about-text ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 16px 0 24px;
+}
+
+.about-text ul li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 12px;
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.about-text ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.about-text blockquote {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 32px 0;
+  padding: 0;
+  border: none;
 }
 
 /* ========================================
