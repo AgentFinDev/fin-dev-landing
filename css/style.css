@@ -465,6 +465,149 @@ ul, ol {
   background: var(--bg);
 }
 
+/* ========================================
+   VIDEO BACKGROUNDS
+   ======================================== */
+.b-salutation--video,
+.b-about-epigraph--video,
+.b-services-epigraph--video,
+.b-cases--video,
+.b-career-principles--video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.b-salutation--video--entity,
+.b-about-epigraph--video--entity,
+.b-services-epigraph--video--entity,
+.b-cases--video--entity,
+.b-career-principles--video--entity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.b-salutation--video--entity---mobile,
+.b-about-epigraph--video--entity---mobile,
+.b-services-epigraph--video--entity---mobile,
+.b-cases--video--entity---mobile,
+.b-career-principles--video--entity---mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .b-salutation--video--entity---desktop,
+  .b-about-epigraph--video--entity---desktop,
+  .b-services-epigraph--video--entity---desktop,
+  .b-cases--video--entity---desktop,
+  .b-career-principles--video--entity---desktop {
+    display: none;
+  }
+  .b-salutation--video--entity---mobile,
+  .b-about-epigraph--video--entity---mobile,
+  .b-services-epigraph--video--entity---mobile,
+  .b-cases--video--entity---mobile,
+  .b-career-principles--video--entity---mobile {
+    display: block;
+  }
+}
+
+/* ========================================
+   SERVICES EPIGRAPH PICTURE (rotating hexagons)
+   ======================================== */
+@keyframes services-epigraph-logos-rotation {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.b-services-epigraph--picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.b-services-epigraph--picture::before {
+  background: linear-gradient(270deg, transparent, var(--bg));
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 96px;
+  z-index: 2;
+}
+
+.b-services-epigraph--picture::after {
+  background: linear-gradient(90deg, transparent, var(--bg));
+  bottom: 0;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 96px;
+  z-index: 2;
+}
+
+.b-services-epigraph--picture--logos {
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-name: services-epigraph-logos-rotation;
+  animation-timing-function: linear;
+  display: flex;
+  gap: 64px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 956px;
+}
+
+.b-services-epigraph--picture--logos svg {
+  flex-shrink: 0;
+  opacity: 0.3;
+}
+
+@media (max-width: 1024px) {
+  .b-services-epigraph--picture {
+    display: none;
+  }
+}
+
+/* ========================================
+   APPROACH ITEM PICTURES
+   ======================================== */
+.approach-item-picture {
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+.approach-item-picture svg {
+  display: block;
+}
+
+/* ========================================
+   LAYOUT: WIDE CONTENT SECTIONS
+   ======================================== */
+.l-content--section---wide {
+  max-width: none;
+}
+
+.l-content--section---wide > .container {
+  max-width: var(--max-w);
+}
+
 .hero > .container,
 .page-hero > .container {
   position: relative;
