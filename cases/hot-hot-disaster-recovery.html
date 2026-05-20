@@ -95,14 +95,14 @@
 
             <h2>Architecture Components</h2>
 
-            <p>1. Duplicated Client Connectivity</p>
+            <h3>1. Duplicated Client Connectivity</h3>
 
             <ul>
-              <li><strong>Primary connection pool</strong> (local DC) &rarr; maintains latency while preventing server failures</li>
-              <li><strong>Reserve pool</strong> (secondary DC) &rarr; ensures failover capacity</li>
+              <li><strong>Primary connection pool</strong> (local DC) &mdash; maintains latency while preventing server failures</li>
+              <li><strong>Reserve pool</strong> (secondary DC) &mdash; ensures failover capacity</li>
             </ul>
 
-            <p>2. Horizontally Scalable Core</p>
+            <h3>2. Horizontally Scalable Core</h3>
 
             <ul>
               <li>Primary DC deployment</li>
@@ -110,12 +110,23 @@
               <li>Automatic failover <strong>with split-brain protection</strong></li>
             </ul>
 
-            <p>3. Post-Recovery Integrity Checks</p>
+            <h3>3. Post-Recovery Integrity Checks</h3>
 
             <ul>
               <li><strong>Drop-copy reconciliation</strong> with execution venues</li>
               <li>Automated <strong>gap/duplication detection</strong> and resolution</li>
             </ul>
+
+            <div class="case-comparison">
+              <div class="case-comparison-switcher">
+                <button class="case-comparison-btn active" data-target="before">Before Findev</button>
+                <button class="case-comparison-btn" data-target="after">After Findev</button>
+              </div>
+              <div class="case-comparison-content">
+                <img src="https://backoffice.fin.dev/uploads/1761205811.758148.png" alt="Before Findev" class="case-comparison-img" data-state="before">
+                <img src="https://backoffice.fin.dev/uploads/1761205811.7583025.png" alt="After Findev" class="case-comparison-img hidden" data-state="after">
+              </div>
+            </div>
 
             <h2>Results</h2>
 
