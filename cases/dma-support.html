@@ -73,22 +73,39 @@
       <div class="container">
         <div class="about-card">
           <div class="about-text">
-            <h2>Context</h2>
-            <p>Following a successful global EMS platform rollout, findev expanded services to include Direct Market Access (DMA) for clients.</p>
 
-            <h2>Challenges</h2>
+            <blockquote>Following the successful rollout of the global EMS platform delivered by findev, the business expanded its offering to include <strong>Direct Market Access (DMA)</strong> for clients.</blockquote>
+
+            <h2>Key Challenges</h2>
+
             <ul>
-              <li>Handling approximately 10 million trades daily</li>
-              <li>Sub-1ms pass-through latency requirements</li>
-              <li>Supporting varied client connection methods</li>
-              <li>Managing client-side risk and limit controls</li>
+              <li><strong>High load:</strong> ~10 million trades per day</li>
+              <li><strong>Strict latency requirements:</strong> Sub-1ms pass-through latency</li>
+              <li><strong>Flexible client connectivity</strong></li>
+              <li><strong>Client risk &amp; limit controls</strong></li>
             </ul>
 
-            <h2>Solution</h2>
-            <p>The team maintained the existing unified codebase while deploying horizontally scalable, separate DMA instances. They restructured fundamental platform components to handle the elevated throughput and minimal latency specifications.</p>
+            <div class="case-comparison">
+              <div class="case-comparison-switcher">
+                <button class="case-comparison-btn active" data-target="before">Before Findev</button>
+                <button class="case-comparison-btn" data-target="after">After Findev</button>
+              </div>
+              <div class="case-comparison-content">
+                <img src="https://backoffice.fin.dev/uploads/1761205650.8469896.png" alt="Before Findev" class="case-comparison-img" data-state="before">
+                <img src="https://backoffice.fin.dev/uploads/1761205650.8471692.png" alt="After Findev" class="case-comparison-img hidden" data-state="after">
+              </div>
+            </div>
 
-            <h2>Outcomes</h2>
-            <p>The enhancement was delivered within reasonable timeframes thanks to the platform's initial robust architecture. The DMA feature launched successfully and achieved positive client reception.</p>
+            <h2>Implementation Approach</h2>
+
+            <ul>
+              <li>Still maintained a <strong>single codebase</strong> for the platform</li>
+              <li>Deployed <strong>horizontally scalable, separate DMA instances</strong></li>
+              <li>Redesigned core components to meet high-load and low-latency demands</li>
+            </ul>
+
+            <blockquote>Thanks to the platform's initial robust architecture, these enhancements were delivered within an acceptable time-to-market window. The DMA functionality successfully launched and was well-received by clients.</blockquote>
+
           </div>
         </div>
       </div>
