@@ -7,9 +7,9 @@
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.75);
   --text-muted: rgba(255, 255, 255, 0.55);
-  --accent: #4d8bff;
-  --accent-light: #6ba1ff;
-  --accent-glow: rgba(77, 139, 255, 0.2);
+  --accent: #0025ff;
+  --accent-light: #3355ff;
+  --accent-glow: rgba(0, 37, 255, 0.2);
 
   --font: 'Outfit', system-ui, sans-serif;
 
@@ -785,11 +785,11 @@ ul, ol {
 }
 
 .stat-box {
-  border: 1px solid rgba(77, 139, 255, 0.4);
+  border: 1px solid rgba(0, 37, 255, 0.4);
   border-radius: var(--radius-sm);
   padding: 24px 20px;
   text-align: center;
-  background: rgba(77, 139, 255, 0.08);
+  background: rgba(0, 37, 255, 0.08);
 }
 
 .stat-number {
