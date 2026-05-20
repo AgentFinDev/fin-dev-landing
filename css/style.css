@@ -821,7 +821,8 @@ ul, ol {
   color: var(--text-secondary);
 }
 
-.location-flag svg {
+.location-flag svg,
+.location-flag img {
   width: 24px;
   height: 16px;
   border-radius: 2px;
@@ -1265,4 +1266,346 @@ ul, ol {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ========================================
+   MAP IMAGES (responsive desktop/mobile)
+   ======================================== */
+.map-desktop {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.map-mobile {
+  display: none;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .map-desktop { display: none; }
+  .map-mobile { display: block; }
+}
+
+/* ========================================
+   PAGE HERO SUBTITLE
+   ======================================== */
+.page-hero-subtitle {
+  font-size: var(--fs-lead);
+  color: var(--text-secondary);
+  margin-top: 16px;
+}
+
+/* ========================================
+   QUOTE ATTRIBUTION (About page)
+   ======================================== */
+.quote-attribution {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* ========================================
+   DIFFERENCE SECTION (About page)
+   ======================================== */
+.difference-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .difference-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}
+
+.difference-text p {
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.difference-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.difference-image img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+/* ========================================
+   VALUES SECTION (About page)
+   ======================================== */
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.value-item {
+  padding: 32px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius);
+}
+
+.value-item h3 {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.value-item p {
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.values-closing {
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-top: 40px;
+  max-width: 56ch;
+}
+
+/* ========================================
+   ASSET CLASSES (Services page)
+   ======================================== */
+.asset-classes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.asset-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: 100px;
+  font-size: var(--fs-body);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ========================================
+   SERVICES PLUS LINE
+   ======================================== */
+.services-plus {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  margin-top: 32px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ========================================
+   STRENGTHS GRID (Services page)
+   ======================================== */
+.strengths-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-top: 32px;
+}
+
+.strength-item h3 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+
+.strength-item p {
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.results-list {
+  list-style: disc;
+  padding-left: 24px;
+  margin-top: 16px;
+}
+
+.results-list li {
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+/* ========================================
+   APPROACH GRID (Services page)
+   ======================================== */
+.approach-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .approach-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.approach-item {
+  padding: 32px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius);
+}
+
+.approach-item h3 {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.approach-item p {
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   CASES LIST (Cases page)
+   ======================================== */
+.cases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.case-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+  gap: 16px;
+}
+
+.case-list-item:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+.case-list-title {
+  font-size: var(--fs-lead);
+  font-weight: 600;
+}
+
+.case-list-arrow {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.case-list-arrow svg {
+  width: 14px;
+  height: 14px;
+  color: #fff;
+}
+
+/* ========================================
+   PRINCIPLES (Career page)
+   ======================================== */
+.principles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .principles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.principle-item {
+  text-align: center;
+}
+
+.principle-label {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: lowercase;
+  margin-bottom: 12px;
+}
+
+.principle-text {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+/* ========================================
+   CAREER LINKS
+   ======================================== */
+.career-links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* ========================================
+   SOLUTIONS LIST (Career page)
+   ======================================== */
+.solutions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.solution-item {
+  padding: 24px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-sm);
+}
+
+.solution-item p {
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+  color: var(--text-secondary);
 }
