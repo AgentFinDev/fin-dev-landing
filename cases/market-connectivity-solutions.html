@@ -36,68 +36,58 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="../index.html" class="logo" aria-label="fin.dev home">fin<span class="logo-dot"></span>dev</a>
-      <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="4" y1="7" x2="20" y2="7"/>
-          <line x1="4" y1="12" x2="20" y2="12"/>
-          <line x1="4" y1="17" x2="20" y2="17"/>
-        </svg>
-      </button>
+      <div class="b-primary-menu">
+        <div class="b-primary-menu--opener"></div>
+        <div class="b-primary-menu--collection">
+          <div class="b-primary-menu--clause"><a href="../about.html" class="b-primary-menu--clause--link">about</a></div>
+          <div class="b-primary-menu--clause"><a href="../services.html" class="b-primary-menu--clause--link">services</a></div>
+          <div class="b-primary-menu--clause"><a href="../cases.html" class="b-primary-menu--clause--link">cases</a></div>
+          <div class="b-primary-menu--clause"><a href="../career.html" class="b-primary-menu--clause--link">careers</a></div>
+          <div class="b-primary-menu--clause"><a href="../career/open-positions.html" class="b-primary-menu--clause--link">open positions</a></div>
+        </div>
+      </div>
     </div>
   </header>
-
-  <div class="nav-menu-overlay" aria-hidden="true"></div>
-  <nav class="nav-menu" id="nav-menu" role="dialog" aria-label="Main navigation">
-    <button class="nav-menu-close" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="6" y1="6" x2="18" y2="18"/>
-        <line x1="6" y1="18" x2="18" y2="6"/>
-      </svg>
-    </button>
-    <div class="nav-menu-links">
-      <a href="../about.html">about <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="../services.html">services <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="../cases.html" class="active">cases <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="../career.html">careers <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="../career/open-positions.html">open positions <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-    </div>
-  </nav>
-
   <main>
     <!-- PAGE HERO -->
     <section class="page-hero">
+      <div class="b-cases--video">
+        <video preload="metadata" autoplay loop muted playsinline
+          poster="https://fin.dev/i/b-about-epigraph-video-poster.jpg"
+          class="b-cases--video--entity b-cases--video--entity---desktop">
+          <source src="https://fin.dev/i/b-about-epigraph-video.mp4" type="video/mp4">
+        </video>
+        <video preload="metadata" autoplay loop muted playsinline
+          poster="https://fin.dev/i/b-about-epigraph-video-mobile-poster.jpg"
+          class="b-cases--video--entity b-cases--video--entity---mobile">
+          <source src="https://fin.dev/i/b-about-epigraph-video-mobile.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="container">
-        <p class="page-hero-subtitle"><a href="../cases.html">← Back to cases</a></p>
-        <h1>Market Connectivity Solutions</h1>
+        <h1>Market Connectivity <span class="accent">Solutions</span></h1>
       </div>
     </section>
 
     <!-- CASE CONTENT -->
-    <section class="section">
+    <section class="about-content">
       <div class="container">
         <div class="about-card">
           <div class="about-text">
-            <blockquote>
-              <p>For small to medium-sized organizations (unless they are high-frequency trading [HFT] funds), vendor connectivity solutions are typically more cost-effective.</p>
-            </blockquote>
+            <h2>Context</h2>
+            <p>For smaller to mid-sized organizations outside the high-frequency trading space, vendor connectivity solutions are typically more cost-effective. However, specific circumstances warrant developing proprietary systems.</p>
 
-            <p>However, certain scenarios justify building an in-house solution.</p>
-
-            <h2>When It Makes Sense</h2>
-
+            <h3>When Building In-House Makes Sense</h3>
             <ul>
-              <li><strong>Low-latency (sub-100 &micro;s) or ultra-low-latency (sub-10 &micro;s)</strong> trading is required</li>
-              <li><strong>Specialized order handling</strong> (e.g., GTD/GTC orders) or execution venue-specific features are needed.</li>
-              <li><strong>Fast time-to-market</strong> for new venues is critical</li>
+              <li>Ultra-low-latency requirements (sub-10 microseconds or sub-100 microseconds trading)</li>
+              <li>Specialized order handling needs or venue-specific features</li>
+              <li>Speed in launching new market connections is essential</li>
             </ul>
 
-            <h2>Trade-offs</h2>
+            <h3>Trade-offs</h3>
+            <p>Building proprietary connectivity requires maintaining a dedicated team to monitor protocol changes and implement timely updates.</p>
 
-            <p>Developing proprietary market connectivity components necessitates a dedicated maintenance team to monitor protocol/wiring changes and implement updates promptly.</p>
-
-            <h2>Our Experience</h2>
-
-            <p>Findev established a central connectivity team overseeing the full lifecycle&mdash;development, infrastructure management, and support &mdash; for both <strong>mid/low-latency (cost-efficient)</strong> and <strong>ultra-low-latency (premium)</strong> solutions, catering to the organization's global markets business.</p>
+            <h2>Solution</h2>
+            <p>Findev created a centralized connectivity team managing the entire lifecycle — including development, infrastructure, and ongoing support — for both standard and high-performance solutions across global markets operations.</p>
           </div>
         </div>
       </div>

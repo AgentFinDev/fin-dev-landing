@@ -2,11 +2,8 @@
   'use strict';
 
   var header = document.querySelector('.site-header');
-  var hamburger = document.querySelector('.hamburger');
-  var navMenu = document.querySelector('.nav-menu');
-  var overlay = document.querySelector('.nav-menu-overlay');
-  var navClose = document.querySelector('.nav-menu-close');
-  var navLinks = document.querySelectorAll('.nav-menu-links a');
+  var primaryMenu = document.querySelector('.b-primary-menu');
+  var primaryMenuOpener = document.querySelector('.b-primary-menu--opener');
 
   var scrollThreshold = 80;
 
@@ -19,46 +16,31 @@
   }, { passive: true });
 
   function openMenu() {
-    navMenu.classList.add('open');
-    overlay.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    hamburger.style.display = 'none';
-    navClose.focus();
+    primaryMenu.classList.add('b-primary-menu---opened');
   }
 
   function closeMenu() {
-    navMenu.classList.remove('open');
-    overlay.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.style.display = '';
-    hamburger.focus();
+    primaryMenu.classList.remove('b-primary-menu---opened');
   }
 
-  hamburger.addEventListener('click', function () {
-    var isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-    if (isOpen) {
+  primaryMenuOpener.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (primaryMenu.classList.contains('b-primary-menu---opened')) {
       closeMenu();
     } else {
       openMenu();
     }
   });
 
-  navClose.addEventListener('click', closeMenu);
-  overlay.addEventListener('click', closeMenu);
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+  document.addEventListener('click', function (e) {
+    if (!primaryMenu.contains(e.target)) {
       closeMenu();
     }
   });
 
-  // Highlight active nav link based on current page
-  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  if (currentPage === '') currentPage = 'index.html';
-  navLinks.forEach(function (link) {
-    var linkHref = link.getAttribute('href').split('/').pop() || 'index.html';
-    if (currentPage === linkHref || currentPage.replace('.html', '') === linkHref.replace('.html', '')) {
-      link.classList.add('active');
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeMenu();
     }
   });
 
