@@ -53,10 +53,11 @@
   });
 
   // Highlight active nav link based on current page
-  var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  if (currentPage === '') currentPage = 'index.html';
   navLinks.forEach(function (link) {
-    var linkPath = link.getAttribute('href').replace(/\/$/, '') || '/';
-    if (currentPath === linkPath || (currentPath.indexOf('.html') > -1 && currentPath.replace('.html', '') === linkPath)) {
+    var linkHref = link.getAttribute('href').split('/').pop() || 'index.html';
+    if (currentPage === linkHref || currentPage.replace('.html', '') === linkHref.replace('.html', '')) {
       link.classList.add('active');
     }
   });
