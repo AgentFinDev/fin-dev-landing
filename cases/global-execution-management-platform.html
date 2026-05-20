@@ -36,86 +36,65 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="../index.html" class="logo" aria-label="fin.dev home">fin<span class="logo-dot"></span>dev</a>
-      <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="4" y1="7" x2="20" y2="7"/>
-          <line x1="4" y1="12" x2="20" y2="12"/>
-          <line x1="4" y1="17" x2="20" y2="17"/>
-        </svg>
-      </button>
+      <div class="b-primary-menu">
+        <div class="b-primary-menu--opener"></div>
+        <div class="b-primary-menu--collection">
+          <div class="b-primary-menu--clause"><a href="../about.html" class="b-primary-menu--clause--link">about</a></div>
+          <div class="b-primary-menu--clause"><a href="../services.html" class="b-primary-menu--clause--link">services</a></div>
+          <div class="b-primary-menu--clause"><a href="../cases.html" class="b-primary-menu--clause--link">cases</a></div>
+          <div class="b-primary-menu--clause"><a href="../career.html" class="b-primary-menu--clause--link">careers</a></div>
+          <div class="b-primary-menu--clause"><a href="../career/open-positions.html" class="b-primary-menu--clause--link">open positions</a></div>
+        </div>
+      </div>
     </div>
   </header>
-
-  <div class="nav-menu-overlay" aria-hidden="true"></div>
-  <nav class="nav-menu" id="nav-menu" role="dialog" aria-label="Main navigation">
-    <button class="nav-menu-close" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="6" y1="6" x2="18" y2="18"/>
-        <line x1="6" y1="18" x2="18" y2="6"/>
-      </svg>
-    </button>
-    <div class="nav-menu-links">
-      <a href="../about.html">about <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="../services.html">services <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="../cases.html" class="active">cases <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="../career.html">careers <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-      <a href="../career/open-positions.html">open positions <span class="nav-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
-    </div>
-  </nav>
-
   <main>
     <!-- PAGE HERO -->
     <section class="page-hero">
+      <div class="b-cases--video">
+        <video preload="metadata" autoplay loop muted playsinline
+          poster="https://fin.dev/i/b-about-epigraph-video-poster.jpg"
+          class="b-cases--video--entity b-cases--video--entity---desktop">
+          <source src="https://fin.dev/i/b-about-epigraph-video.mp4" type="video/mp4">
+        </video>
+        <video preload="metadata" autoplay loop muted playsinline
+          poster="https://fin.dev/i/b-about-epigraph-video-mobile-poster.jpg"
+          class="b-cases--video--entity b-cases--video--entity---mobile">
+          <source src="https://fin.dev/i/b-about-epigraph-video-mobile.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="container">
-        <p class="page-hero-subtitle"><a href="../cases.html">← Back to cases</a></p>
-        <h1>Global Execution Management Platform for Equities Business</h1>
+        <h1>Global Execution Management Platform <span class="accent">for Equities Business</span></h1>
       </div>
     </section>
 
     <!-- CASE CONTENT -->
-    <section class="section">
+    <section class="about-content">
       <div class="container">
         <div class="about-card">
           <div class="about-text">
-            <blockquote>
-              <p>A US-based equities business successfully used an internally developed execution management platform for program trading over several years.</p>
-            </blockquote>
+            <h2>Context</h2>
+            <p>A US equities firm leveraged an internally built execution platform for program trading. The system handled approximately 10,000 daily orders while meeting SEC and FINRA requirements.</p>
 
-            <p>The platform fully met business needs from a performance perspective (supporting ~10,000 orders per day), offered robust functionality (including all required trading and auto-execution features), and complied with SEC, FINRA, and other regulatory requirements.</p>
-
-            <p><strong>When the business expanded into the EU and APAC regions, the engineering team faced several challenges:</strong></p>
-
+            <h2>Challenge</h2>
+            <p>When entering EU and APAC markets, the team encountered:</p>
             <ul>
-              <li>Slightly different business functionality and controls across regions (e.g., best execution, short selling, price markups/downs)</li>
-              <li>Additional regulatory reporting requirements (FCA, ESMA, SFC, MAS, etc.)</li>
-              <li>New execution venues</li>
-              <li>24/5 operating hours</li>
-              <li>A <strong>5x increase</strong> in system load</li>
+              <li>Regional business rule variations (execution standards, short-sale restrictions, pricing adjustments)</li>
+              <li>Diverse regulatory obligations (FCA, ESMA, SFC, MAS among others)</li>
+              <li>Multiple execution venues</li>
+              <li>Round-the-clock operational requirements</li>
+              <li>5x increase in system load</li>
             </ul>
 
-            <p><strong>Rather than creating separate platform copies for each region and maintaining them independently, the findev engineering team preserved a single global platform.</strong></p>
+            <h2>Solution</h2>
+            <p>Rather than maintaining separate regional systems, findev preserved a unified global architecture.</p>
 
-            <div class="case-comparison">
-              <div class="case-comparison-switcher">
-                <button class="case-comparison-btn active" data-target="before">Before Findev</button>
-                <button class="case-comparison-btn" data-target="after">After Findev</button>
-              </div>
-              <div class="case-comparison-content">
-                <img src="https://backoffice.fin.dev/uploads/1761205335.8307545.png" alt="Before Findev" class="case-comparison-img" data-state="before">
-                <img src="https://backoffice.fin.dev/uploads/1761205335.8309577.png" alt="After Findev" class="case-comparison-img hidden" data-state="after">
-              </div>
-            </div>
-
-            <p><strong>This approach ensured:</strong></p>
-
+            <h2>Outcomes</h2>
             <ul>
-              <li><strong>Simultaneous delivery</strong> of core functional improvements and security patches across all regions</li>
-              <li><strong>Flexibility to introduce region-specific features</strong> based on local business, reg&amp;compliance needs</li>
+              <li>Synchronized delivery of core improvements and security updates worldwide</li>
+              <li>Capacity to implement region-specific functionality per local requirements</li>
+              <li>Support for up to 100,000 orders/day globally with 24/5 operations maintaining compliance and performance</li>
             </ul>
-
-            <blockquote>
-              <p><strong>The enhanced platform supported up to 100,000 orders/day globally</strong> while maintaining compliance and performance standards <strong>operating 24/5</strong> (follow-the-sun business model).</p>
-            </blockquote>
           </div>
         </div>
       </div>
