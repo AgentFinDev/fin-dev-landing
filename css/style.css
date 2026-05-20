@@ -1,13 +1,15 @@
 :root {
-  --bg: #000000;
-  --bg-card: #0a0a0a;
-  --bg-card-border: rgba(255, 255, 255, 0.08);
+  --bg: #0a0a0f;
+  --bg-alt: #0d1117;
+  --bg-alt2: #111827;
+  --bg-card: #1a1a2e;
+  --bg-card-border: rgba(255, 255, 255, 0.12);
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.65);
-  --text-muted: rgba(255, 255, 255, 0.45);
-  --accent: #2400FF;
-  --accent-light: #4433FF;
-  --accent-glow: rgba(36, 0, 255, 0.15);
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --accent: #4d8bff;
+  --accent-light: #6ba1ff;
+  --accent-glow: rgba(77, 139, 255, 0.2);
 
   --font: 'Outfit', system-ui, sans-serif;
 
@@ -18,7 +20,7 @@
   --fs-body: 1rem;
   --fs-small: 0.875rem;
 
-  --space-section: clamp(80px, 10vw, 120px);
+  --space-section: clamp(48px, 6vw, 80px);
   --gutter: clamp(20px, 3vw, 40px);
   --max-w: 1200px;
   --radius: 20px;
@@ -457,9 +459,10 @@ ul, ol {
   padding-bottom: var(--space-section);
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: flex-end;
+  background: var(--bg);
 }
 
 .hero-globe {
@@ -580,6 +583,12 @@ ul, ol {
    ======================================== */
 .intro-section {
   padding: var(--space-section) 0;
+  background: var(--bg-alt);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.intro-section:nth-of-type(even) {
+  background: var(--bg-alt2);
 }
 
 .intro-grid {
@@ -692,6 +701,8 @@ ul, ol {
    ======================================== */
 .stats-section {
   padding: var(--space-section) 0;
+  background: var(--bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .stats-card {
@@ -746,10 +757,11 @@ ul, ol {
 }
 
 .stat-box {
-  border: 1px solid var(--accent);
+  border: 1px solid rgba(77, 139, 255, 0.4);
   border-radius: var(--radius-sm);
   padding: 24px 20px;
   text-align: center;
+  background: rgba(77, 139, 255, 0.08);
 }
 
 .stat-number {
@@ -778,6 +790,8 @@ ul, ol {
    ======================================== */
 .locations-section {
   padding: var(--space-section) 0;
+  background: var(--bg-alt);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .world-map {
@@ -818,7 +832,7 @@ ul, ol {
   gap: 10px;
   font-size: var(--fs-body);
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .location-flag svg,
@@ -990,7 +1004,8 @@ ul, ol {
    ======================================== */
 .site-footer {
   padding: 48px 0 32px;
-  border-top: 1px solid var(--bg-card-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #060609;
 }
 
 .footer-grid {
@@ -1277,6 +1292,8 @@ ul, ol {
   max-width: 1000px;
   height: auto;
   margin: 0 auto;
+  filter: brightness(2.5) contrast(1.1);
+  opacity: 0.85;
 }
 
 .map-mobile {
@@ -1285,6 +1302,8 @@ ul, ol {
   max-width: 400px;
   height: auto;
   margin: 0 auto;
+  filter: brightness(2.5) contrast(1.1);
+  opacity: 0.85;
 }
 
 @media (max-width: 767px) {
