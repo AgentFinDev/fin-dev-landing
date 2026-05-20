@@ -65,48 +65,63 @@
   <main>
     <!-- PAGE HERO -->
     <section class="page-hero">
-      <div class="b-cases--video">
-        <video preload="metadata" autoplay loop muted playsinline
-          poster="https://fin.dev/i/b-about-epigraph-video-poster.jpg"
-          class="b-cases--video--entity b-cases--video--entity---desktop">
-          <source src="https://fin.dev/i/b-about-epigraph-video.mp4" type="video/mp4">
-        </video>
-        <video preload="metadata" autoplay loop muted playsinline
-          poster="https://fin.dev/i/b-about-epigraph-video-mobile-poster.jpg"
-          class="b-cases--video--entity b-cases--video--entity---mobile">
-          <source src="https://fin.dev/i/b-about-epigraph-video-mobile.mp4" type="video/mp4">
-        </video>
-      </div>
       <div class="container">
-        <h1>HOT-HOT <span class="accent">Disaster Recovery</span> (DR)</h1>
+        <p class="page-hero-subtitle"><a href="../cases.html">← Back to cases</a></p>
+        <h1>HOT-HOT Disaster Recovery (DR)</h1>
       </div>
     </section>
 
     <!-- CASE CONTENT -->
-    <section class="about-content">
+    <section class="section">
       <div class="container">
         <div class="about-card">
           <div class="about-text">
-            <h2>Challenge</h2>
-            <p>Disaster recovery presents unique challenges in trading systems, particularly for Direct Market Access (DMA) environments. The findev team addressed critical DMA requirements where even brief interruptions cause failures, unlike program trading systems with greater tolerance for downtime.</p>
+            <blockquote>
+              <p>Disaster recovery presents unique challenges in trading systems, particularly for Direct Market Access (DMA) environments.</p>
+            </blockquote>
 
-            <h2>Solution</h2>
-            <p>The implementation delivers protection across three failure categories: connectivity loss, single server failures, and complete data center outages.</p>
+            <p>During DMA implementation, the findev team overhauled the DR architecture to address these demands. Unlike program trading (which has more tolerance for brief interruptions), DMA requires continuous availability - even a single client session drop becomes critical.</p>
 
-            <h3>Key Architecture Elements</h3>
+            <h2>HOT-HOT DR Implementation</h2>
+
+            <p>The solution delivers multi-layer resiliency against:</p>
+
             <ul>
-              <li>Duplicated client connectivity with primary local pool and secondary reserve pool</li>
-              <li>Horizontally scalable core with real-time state replication between data centers</li>
-              <li>Automatic failover with split-brain protection</li>
-              <li>Post-recovery reconciliation with execution venues</li>
-              <li>Automated gap and duplication detection</li>
+              <li><strong>Connectivity loss</strong> (both market feeds and client sessions)</li>
+              <li><strong>Single server failure</strong></li>
+              <li><strong>Complete data center outage</strong></li>
+            </ul>
+
+            <h2>Architecture Components</h2>
+
+            <p>1. Duplicated Client Connectivity</p>
+
+            <ul>
+              <li><strong>Primary connection pool</strong> (local DC) &rarr; maintains latency while preventing server failures</li>
+              <li><strong>Reserve pool</strong> (secondary DC) &rarr; ensures failover capacity</li>
+            </ul>
+
+            <p>2. Horizontally Scalable Core</p>
+
+            <ul>
+              <li>Primary DC deployment</li>
+              <li>Real-time state replication to secondary DC</li>
+              <li>Automatic failover <strong>with split-brain protection</strong></li>
+            </ul>
+
+            <p>3. Post-Recovery Integrity Checks</p>
+
+            <ul>
+              <li><strong>Drop-copy reconciliation</strong> with execution venues</li>
+              <li>Automated <strong>gap/duplication detection</strong> and resolution</li>
             </ul>
 
             <h2>Results</h2>
+
             <ul>
-              <li>Transparent server failover: Client sessions remain uninterrupted during single-server failures</li>
-              <li>Rapid DC recovery: Full data center failover completes within 1 minute</li>
-              <li>Zero data loss: Verified through post-recovery reconciliation</li>
+              <li><strong>Transparent server failover:</strong> Client sessions remain uninterrupted during single-server failures</li>
+              <li><strong>Rapid DC recovery:</strong> Full data center failover completes within 1 minute</li>
+              <li><strong>Zero data loss:</strong> Verified through post-recovery reconciliation</li>
             </ul>
           </div>
         </div>
